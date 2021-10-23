@@ -1,14 +1,14 @@
-import { User } from "../../src/entities/User";
-import { IMailProvider } from "../../src/providers/IMailProvider";
-import { IUsersRepository } from "../../src/repositories/IUSersRepository";
-import { ICreateUserUSeCaseRequestDTO } from "./CreateUserDTO";
+import { User } from "../../entities/User";
+import { IMailProvider } from "../../providers/IMailProvider";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
+import { ICreateUserUseCaseRequestDTO } from "./CreateUserDTO";
 
-export class CreateUserUSeCase{
+export class CreateUserUseCase{
       constructor(private usersRepository: IUsersRepository, 
                   private mailProvider: IMailProvider){
       }
       
-      async execute(data: ICreateUserUSeCaseRequestDTO){
+      async execute(data: ICreateUserUseCaseRequestDTO){
             const userAlreadyExists = await this.usersRepository.findByEmail(data.email);
 
             if(userAlreadyExists) { 
