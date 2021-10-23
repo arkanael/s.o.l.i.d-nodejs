@@ -19,7 +19,7 @@ export class CreateUserUseCase{
 
             await this.usersRepository.save(user);
 
-            this.mailProvider.sendMail({
+            await this.mailProvider.sendMail({
                   to: {
 
                         name: data.name,
@@ -31,7 +31,7 @@ export class CreateUserUseCase{
                   },
 
                   subject: "Seja bem vindo à plataforma",
-                  body: '<p>Você há pode fazer login na nossa plataforma.</p>'  
+                  body: '<p>Você já pode fazer login na nossa plataforma.</p>'  
             });
       }
 }
